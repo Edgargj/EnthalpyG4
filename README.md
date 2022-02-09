@@ -34,7 +34,7 @@ $make
 How to test the program (or how it should be):
 
 ~~~~~~~~~~
-$./compute-enthalpy-atG4.cc CH3OH-G4.txt
+$./computeEnthalpyG4.x CH3OH-G4.txt
 
 ===================================================================================================
                       New calculation of molecular enthalpies of formation                         
