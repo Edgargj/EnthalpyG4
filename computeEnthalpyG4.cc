@@ -8,6 +8,7 @@
 #include "optflag.h"
 #include "methodtype.h"
 #include "enthalpyg4.h"
+
 using std::string;
 
 int main (int argc, char *argv[])

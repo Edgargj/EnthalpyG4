@@ -24,8 +24,8 @@ public:
 	string filename;
 	string method;
 	int atomic_species;
-	long double G4_energy;
-	long double G4_enthalpy;
+	long double energy;
+	long double enthalpy;
 	vector <int> atomic_number;
 	vector <int> number_atoms;
 	int molecule_linearity;

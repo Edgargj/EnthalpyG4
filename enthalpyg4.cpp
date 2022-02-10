@@ -26,7 +26,7 @@ double EnthalpyG4::SumDeltaH_a0k(EnthalpyInputData &input){
 
 	double DeltaH_a0k = 0.0;
 	double DeltaH_aelements = 0.0;
-	double DeltaE_0kmolecule = input.G4_energy;
+	double DeltaE_0kmolecule = input.energy;
 	double antemp, natmp;
 	const double htokj = 2625.4997480;
 
@@ -44,18 +44,18 @@ double EnthalpyG4::SumDeltaH_a0k(EnthalpyInputData &input){
 
 /* ***********************************************G4*********************************************** */
 
-
 double EnthalpyG4::DeltaH_ElementsExperimental(int atn){
 
-	static const double g40K[]={ 0.0, 216.03500, 0.0, 0.0, 0.0, 0.0, 711.185, 470.82000, 246.7900, 0.0, 
-		0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 274.73500, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
-		0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+	static const double g40K[]={ 0.0, 216.03500, 0.0, 157.80000, 317.10000, 569.90000, 711.185, 470.82000, 
+		246.7900, 77.40000, 0.0, 107.60000, 146.50000, 327.30000, 452.30000, 315.60000, 274.73500, 
+		119.60000, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 
 
 	return g40K[atn];
 }
 
 /* ***********************************************G4*********************************************** */
+
 double EnthalpyG4::SumDeltaH_f0k(EnthalpyInputData &input){
 
 	double DeltaH_0k = 0.0;
@@ -75,6 +75,7 @@ double EnthalpyG4::SumDeltaH_f0k(EnthalpyInputData &input){
 }
 
 /* ***********************************************G4*********************************************** */
+
 double EnthalpyG4::HeatFormation_kJtokcal(EnthalpyInputData &input){
 
 	double kcal = 0.0;
@@ -86,10 +87,11 @@ double EnthalpyG4::HeatFormation_kJtokcal(EnthalpyInputData &input){
 }
 
 /* ***********************************************G4*********************************************** */
+
 double EnthalpyG4::DeltaDeltaH(EnthalpyInputData &input){
 
-	double G4_energy0k = input.G4_energy;
-	double G4_enthalpy298k = input.G4_enthalpy;
+	double G4_energy0k = input.energy;
+	double G4_enthalpy298k = input.enthalpy;
 	double DeltaDeltaH_molecule = 0.0;
 	const double htokj = 2625.4997480;
 
@@ -102,12 +104,12 @@ double EnthalpyG4::DeltaDeltaH(EnthalpyInputData &input){
 
 double EnthalpyG4::ExperimentalEnthalpyElements(int atn){
 
-	static const double g40K[]={ 0.0, 8.46700/2, 0.0, 0.0, 0.0, 0.0, 1.05100, 8.67000/2, 8.68300/2, 0.0, 
-		0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.41200, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
-		0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+        static const double g40K[]={ 0.0, 8.46700/2, 0.0, 4.62800, 1.95000, 1.21300, 1.05100, 8.67000/2, 8.68300/2, 8.82000/2,
+                0.0, 6.44000, 5.00000, 4.57700, 3.21700, 5.36000, 4.41200, 9.17600, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+                0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 
 
-	return g40K[atn];
+        return g40K[atn];
 }
 
 /* ***********************************************G4*********************************************** */
@@ -230,14 +232,14 @@ double EnthalpyG4::EnthalpyTS_kcal(EnthalpyInputData &input){
 
 double EnthalpyG4::EnthalpyResult(EnthalpyInputData &input){
 
-        MethodType MethodNorRRHO;
+	MethodType MethodNorRRHO;
 
-        cout << "                                                                                                   " << endl;
+	cout << "                                                                                                   " << endl;
         cout << "===================================================================================================" << endl;
         cout << "                      New calculation of molecular enthalpies of formation                         " << endl;
         cout << "                                                                                                   " << endl;
         cout << "              Enthalpies of formation of gaseous atoms at 0 K and thermal corrections              " << endl;
-        cout << "                       for elements in their standard state at 298.16 K from:                      " << endl;
+        cout << "                       for elements in their standard state at 298.15 K from:                      " << endl;
         cout << "                                                                                                   " << endl;
         cout << "       NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998, 1-1951.           " << endl;
         cout << "===================================================================================================" << endl;
@@ -256,10 +258,9 @@ double EnthalpyG4::EnthalpyResult(EnthalpyInputData &input){
         cout << "298K        " << DeltaH_f298k(input) << " kJ mol-1" << endl;
         cout << "298K        " << DeltaH_f298k_kcal(input) << " kcal mol-1" << endl;
         cout << "                                                                                                   " << endl;
-        cout << "===================================================================================================" << endl;
+        cout << "===================================================================================================" << endl;	
 
-        return 0;
+	return 0.0e0;
 }
 
 /* ***********************************************G4*********************************************** */
-

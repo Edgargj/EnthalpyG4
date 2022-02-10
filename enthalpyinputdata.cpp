@@ -12,9 +12,9 @@ void EnthalpyInputData::ReadData(string fname){
 
 	filein >> atomic_species;
 
-	filein >> G4_energy;
+	filein >> energy;
 
-	filein >> G4_enthalpy;
+	filein >> enthalpy;
 
 	atomic_number.resize(atomic_species);
 	number_atoms.resize(atomic_species);

@@ -1,9 +1,9 @@
 #include <cstdlib>
 #include <iostream>
-using std::cout;
-
 #include "method.h"
 #include "enthalpyg4.h"
+
+using std::cout;
 
 double Method::ComputeEnthalpy(EnthalpyInputData &input) {
    
