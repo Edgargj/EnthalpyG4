@@ -1,6 +1,6 @@
 # EnthalpyG4
 
-EnthalpyG4 is a program that calculates the enthalpies of formation (by the Gaussian09 G4 method) of gaseous atoms at 0 K and thermal corrections for elements in their standard state at 298.16 K from: NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998, 1-1951.
+EnthalpyG4 is a program that calculates the enthalpies of formation (by the Gaussian09 G4 method) of gaseous atoms at 0 K and thermal corrections for elements in their standard state at 298.15 K from: NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998, 1-1951.
 
 # Git instructions
 
@@ -40,7 +40,7 @@ $./computeEnthalpyG4.x CH3OH-G4.txt
                       New calculation of molecular enthalpies of formation                         
                                                                                                    
               Enthalpies of formation of gaseous atoms at 0 K and thermal corrections              
-                       for elements in their standard state at 298.16 K from:                      
+                       for elements in their standard state at 298.15 K from:                      
                                                                                                    
        NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998, 1-1951.           
 ===================================================================================================
