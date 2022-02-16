@@ -9,7 +9,7 @@ double Method::ComputeEnthalpy(EnthalpyInputData &input) {
    
    if ( input.method==string("G4") ) {
       EnthalpyG4 g4;
-	return g4.EnthalpyResult(input);
+	return g4.PrintResult(input);
    } 
    return 0.0e0;
 }
